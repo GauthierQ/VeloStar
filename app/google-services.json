@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "600911297971",
+    "firebase_url": "https://velostar-76501.firebaseio.com",
+    "project_id": "velostar-76501",
+    "storage_bucket": "velostar-76501.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600911297971:android:1f5b091540493de5891fc6",
+        "android_client_info": {
+          "package_name": "com.example.velostar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600911297971-k22buvoqbqsd3quuddgq88ffp77qu14a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdDWpve6zJok2CyCaC7r2eBT27L50mPhk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600911297971-k22buvoqbqsd3quuddgq88ffp77qu14a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
