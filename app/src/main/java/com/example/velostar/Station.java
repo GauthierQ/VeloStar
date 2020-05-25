@@ -1,42 +1,47 @@
 package com.example.velostar;
 
+import java.time.Instant;
+import java.util.Date;
+
 public class Station {
 
     private String id;
     private String nom;
-    private String adresse;
     private boolean etat;
     private double latitude;
     private double longitude;
-    private int soclesDisop;
+    private int emplacementDispo;
+    private int emplacementActuel;
     private int velosDispo;
-    private boolean paiementCarte;
+    private Date lastUpdate;
+
 
     //CONSTRUCTEURS
     //Contructeur par defaut
+
     public Station() {
         this.id = "";
         this.nom = "";
-        this.adresse = "";
         this.etat = false;
         this.latitude = 0;
         this.longitude = 0;
-        this.soclesDisop = -1;
+        this.emplacementDispo = -1;
+        this.emplacementActuel = -1;
         this.velosDispo = -1;
-        this.paiementCarte = false;
+        this.lastUpdate = null;
     }
-    public Station(String id, String nom, String adresse, boolean etat, double latitude, double longitude, int soclesDisop, int velosDispo, boolean paiementCarte) {
+
+    public Station(String id, String nom, boolean etat, double latitude, double longitude, int emplacementDispo, int emplacementActuel, int velosDispo, Date lastUpdate) {
         this.id = id.trim();
         this.nom = nom.trim();
-        this.adresse = adresse.trim();
         this.etat = etat;
         this.latitude = latitude;
         this.longitude = longitude;
-        this.soclesDisop = soclesDisop;
+        this.emplacementDispo = emplacementDispo;
+        this.emplacementActuel = emplacementActuel;
         this.velosDispo = velosDispo;
-        this.paiementCarte = paiementCarte;
+        this.lastUpdate = lastUpdate;
     }
-
 
     //Getters
     public String getId() {
@@ -44,9 +49,6 @@ public class Station {
     }
     public String getNom() {
         return nom;
-    }
-    public String getAdresse() {
-        return adresse;
     }
     public boolean isEtat() {
         return etat;
@@ -57,53 +59,59 @@ public class Station {
     public double getLongitude() {
         return longitude;
     }
-    public int getSoclesDisop() {
-        return soclesDisop;
+
+    public int getEmplacementDispo() {
+        return emplacementDispo;
     }
+
+    public int getEmplacementActuel() {
+        return emplacementActuel;
+    }
+
     public int getVelosDispo() {
         return velosDispo;
     }
-    public boolean isPaiementCarte() {
-        return paiementCarte;
-    }
 
+    public Date getLastUpdate() {
+        return lastUpdate;
+    }
 
     public void valoriser(String id, String nom, String adresse, double latitude, double longitude, boolean paiementCarte){
         this.id=id.trim();
         this.nom=nom.trim();
-        this.adresse=adresse.trim();
         this.latitude=latitude;
         this.longitude=longitude;
-        this.paiementCarte=paiementCarte;
     }
 
-    public void valoriser(boolean etat, int soclesDisop, int velosDispo){
+    public void valoriser(boolean etat, Date lastUpdate, int emplacementDispo, int emplacementActuel, int velosDispo){
         this.etat=etat;
-        this.soclesDisop=soclesDisop;
+        this.lastUpdate = lastUpdate;
+        this.emplacementDispo=emplacementDispo;
+        this.emplacementActuel=emplacementActuel;
         this.velosDispo=velosDispo;
     }
 
     @Override
     public String toString() {
 
-        if (this.getSoclesDisop() != -1 && this.getVelosDispo() != -1){
+        if (this.getEmplacementDispo() != -1 && this.getVelosDispo() != -1){
             return  "Numéro :\t\t" + this.getId()+ '\n' +
                     "Nom :\t\t" + this.getNom() + '\n' +
-                    "Adresse :\t\t" + this.getAdresse() + '\n' +
                     "Latitude :\t\t" + this.getLatitude() + '\n' +
                     "Longitude :\t" + this.getLongitude() +'\n' +
-                    "PaiementCarte :\t" + this.isPaiementCarte() + '\n' +
                     "\nEtat :\t" + this.isEtat() + '\n' +
-                    "SoclesDisop :\t\t" + this.getSoclesDisop() + '\n' +
-                    "VelosDispo :\t\t" + this.getVelosDispo() + '\n' ;
+                    "Emplacement Disponible :\t\t" + this.getEmplacementDispo() + '\n' +
+                    "Emplacement Actuel :\t\t" + this.getEmplacementActuel() + '\n' +
+                    "Velos Disponible :\t\t" + this.getVelosDispo() + '\n' +
+                    "Dernière mis à jour :\t\t" + this.getLastUpdate() + '\n'
+                    ;
         } else {
 
             return "Numéro :\t\t" + this.getId()+ '\n' +
                     "Nom :\t\t" + this.getNom() + '\n' +
-                    "Adresse :\t\t" + this.getAdresse() + '\n' +
                     "Latitude :\t\t" + this.getLatitude() + '\n' +
-                    "Longitude :\t" + this.getLongitude() +'\n' +
-                    "PaiementCarte :\t" + this.isPaiementCarte() + '\n';
+                    "Longitude :\t" + this.getLongitude() +'\n';
+
         }
     }
 }
