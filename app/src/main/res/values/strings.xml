@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">VeloStar</string>
     <string name="title_activity_maps">Map</string>
+    <string name="texteTextViewDetail"> Sélectionnez une station</string>
 </resources>
