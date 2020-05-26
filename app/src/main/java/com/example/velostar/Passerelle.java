@@ -1,8 +1,7 @@
-package com.example.velostar;
+/*package com.example.velostar;
 
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
+        import com.android.volley.RequestQueue;
 
 public class Passerelle {
 
@@ -21,4 +20,4 @@ public class Passerelle {
             + "&facet=nombrevelosdisponibles"
             + "&facet=lastupdate" ;
 
-}
+}*/
