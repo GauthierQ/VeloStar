@@ -2,4 +2,6 @@
     <string name="app_name">VeloStar</string>
     <string name="title_activity_maps">Map</string>
     <string name="texteTextViewDetail"> Sélectionnez une station</string>
+    <string name="google_maps_key">AIzaSyDw6_dop_Q6aEkgxL-vZcv4x-IeYyc2QQs</string>
+
 </resources>
