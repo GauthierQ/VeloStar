@@ -88,7 +88,7 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
         leMarqueur = new MarkerOptions();
         leMarqueur.position(MAIRIE);
         leMarqueur.title("Mairie de Rennes");
-        leMarqueur.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        leMarqueur.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
         mMap.addMarker(leMarqueur);
 
         leMarqueur = new MarkerOptions();

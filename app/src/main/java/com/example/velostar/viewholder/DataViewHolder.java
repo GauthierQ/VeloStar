@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.velostar.R;
-import com.google.android.gms.maps.MapView;
 
 public class DataViewHolder extends RecyclerView.ViewHolder {
 
