@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.velostar.model.Fields;
+import com.example.velostar.model.Records;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -22,6 +23,8 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.Marker;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Maps extends FragmentActivity implements OnMapReadyCallback {
@@ -34,7 +37,7 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
     private LatLng THABOR = new LatLng(48.114208, -1.665977);
     private LatLng MAIRIE = new LatLng(48.112102, -1.680228);
 
-    private  ListActivity listActivity;
+    private List<Records> data = new ArrayList<>();
     private Fields fields;
 
 
@@ -87,19 +90,38 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
 
         leMarqueur = new MarkerOptions();
         leMarqueur.position(MAIRIE);
-        leMarqueur.title("Mairie de Rennes");
-        leMarqueur.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
+        leMarqueur.title("MyDigitalMairie");
+        leMarqueur.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
         mMap.addMarker(leMarqueur);
 
         leMarqueur = new MarkerOptions();
         leMarqueur.position(THABOR);
-        leMarqueur.title("Chopper des meufs (Le Thabor)");
+        leMarqueur.title("MyDigitalThabor)");
         leMarqueur.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
         mMap.addMarker(leMarqueur);
     }
 
     private void  placerMarqueursStations() {
 
+        MarkerOptions leMarqueur;
+        double Lat;
+        double Lng;
+
+        for (int i=0; i < fields.getCoordonnes().length; i++)
+        {
+            fields.getCoordonnes().
+        }
+
+        mMap.clear();
+        placerMarqueursFixes();
+
+        for (int i = 0; i < data.size(); i++) {
+            leMarqueur = new MarkerOptions();
+            leMarqueur.position(new LatLng(fields.getCoordonnes(), ));
+            leMarqueur.title(fields.getName());
+            leMarqueur.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+            mMap.addMarker(leMarqueur);
+        }
     }
 
 }
