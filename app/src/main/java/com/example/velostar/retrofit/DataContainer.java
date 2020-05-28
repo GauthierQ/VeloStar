@@ -28,7 +28,25 @@ public class DataContainer {
     @Override
     public String toString() {
         return "DataContainer{" +
-                "data=" + data +
+                    "records: [" +
+                        "{" +
+                            "fields: {" +
+                                "etat:" + data +
+                                "lastupdate:" + data +
+                                "nombrevelosdisponibles:" + data +
+                                "nombreemplacementsactuels:" + data +
+                                "nom:" + data +
+                                "nombreemplacementsdisponibles:" + data +
+                                "idstation:" + data +
+                                "coordonnees: [" +
+                                    data +
+                                    data +
+                                "]" +
+                            "}" +
+                        "}" +
+                    "]" +
                 '}';
+
+
     }
 }
