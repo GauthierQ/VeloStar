@@ -30,23 +30,9 @@ public class DataContainer {
         return "DataContainer{" +
                     "records: [" +
                         "{" +
-                            "fields: {" +
-                                "etat:" + data +
-                                "lastupdate:" + data +
-                                "nombrevelosdisponibles:" + data +
-                                "nombreemplacementsactuels:" + data +
-                                "nom:" + data +
-                                "nombreemplacementsdisponibles:" + data +
-                                "idstation:" + data +
-                                "coordonnees: [" +
-                                    data +
-                                    data +
-                                "]" +
-                            "}" +
+                            data +
                         "}" +
                     "]" +
                 '}';
-
-
     }
 }
