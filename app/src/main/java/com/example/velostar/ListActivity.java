@@ -14,6 +14,13 @@ import com.example.velostar.adapter.DatasAdapter;
 import com.example.velostar.model.Records;
 import com.example.velostar.model.DataContainer;
 import com.example.velostar.retrofit.RetrofitClient;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,7 +29,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class ListActivity extends AppCompatActivity {
+public class ListActivity extends AppCompatActivity  {
 
     Button btn_map;
 
@@ -34,6 +41,7 @@ public class ListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list);
+
 
         btn_map = findViewById(R.id.btn_map);
 
@@ -47,7 +55,7 @@ public class ListActivity extends AppCompatActivity {
 
 
 
-       rv_list_station = findViewById(R.id.rv_list_station);
+        rv_list_station = findViewById(R.id.rv_list_station);
 
        final DatasAdapter datasAdapter = new DatasAdapter(data);
        rv_list_station.setAdapter(datasAdapter);
@@ -73,4 +81,7 @@ public class ListActivity extends AppCompatActivity {
            }
        });
     }
+
+
+
 }

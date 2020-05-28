@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,12 +14,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.velostar.R;
 import com.example.velostar.model.Records;
 import com.example.velostar.viewholder.DataViewHolder;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 public class DatasAdapter extends RecyclerView.Adapter<DataViewHolder> {
 
     private List<Records> data;
+    private GoogleMap mMap;
 
     public DatasAdapter(List<Records> data) {
         this.data = data;
@@ -51,8 +61,15 @@ public class DatasAdapter extends RecyclerView.Adapter<DataViewHolder> {
         TextView tv_item_velo_dispo = holder.getTv_item_velo_dispo();
         tv_item_velo_dispo.setText(data.getFields().getVeloDispo()+"");
 
+        TextView tv_item_update = holder.getTv_item_update();
+        tv_item_update.setText(data.getFields().getLastupdate()+"");
 
-
+        ImageView iv_item_etat = holder.getIv_item_etat();
+        if (data.getFields().getEtat().equals("En fonctionnement")){
+            iv_item_etat.setImageResource(R.drawable.ic_great);
+        }else {
+            iv_item_etat.setImageResource(R.drawable.ic_disable);
+        }
 
 
         if(position %2 == 1){
@@ -64,6 +81,7 @@ public class DatasAdapter extends RecyclerView.Adapter<DataViewHolder> {
 
 
     }
+
 
     @Override
     public int getItemCount() {

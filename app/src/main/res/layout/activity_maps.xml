@@ -7,14 +7,7 @@
     android:orientation="vertical"
     tools:context=".Maps">
 
-    <TextView
-        android:id="@+id/textViewDetail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/black"
-        android:textColor="@android:color/white"
-        android:text="@string/texteTextViewDetail"
-        android:textSize="18sp" />
+
 
     <Button
         android:id="@+id/btn_liste_station"

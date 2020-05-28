@@ -16,7 +16,8 @@ public class DataViewHolder extends RecyclerView.ViewHolder {
     private TextView tv_item_socles;
     private TextView tv_item_socles_dispo;
     private TextView tv_item_velo_dispo;
-   // private MapView mv_item_map;
+    private TextView tv_item_update;
+    private ImageView iv_item_etat;
 
     public DataViewHolder(@NonNull View v) {
         super(v);
@@ -24,7 +25,8 @@ public class DataViewHolder extends RecyclerView.ViewHolder {
         tv_item_socles = v.findViewById(R.id.tv_item_socles);
         tv_item_socles_dispo = v.findViewById(R.id.tv_item_socles_dispo);
         tv_item_velo_dispo = v.findViewById(R.id.tv_item_velo_dispo);
-       // mv_item_map = v.findViewById(R.id.mv_item_map);
+        tv_item_update = v.findViewById(R.id.tv_item_update);
+        iv_item_etat = v.findViewById(R.id.iv_item_etat);
 
     }
 
@@ -44,7 +46,11 @@ public class DataViewHolder extends RecyclerView.ViewHolder {
         return tv_item_velo_dispo;
     }
 
-   /* public MapView getMv_item_map() {
-        return mv_item_map;
-    }*/
+    public TextView getTv_item_update() {
+        return tv_item_update;
+    }
+
+    public ImageView getIv_item_etat() {
+        return iv_item_etat;
+    }
 }
