@@ -32,7 +32,6 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
 
     //manage creation of some locations
     private LatLng THABOR = new LatLng(48.114208, -1.665977);
-    private LatLng DELASALLE = new LatLng(48.12546, -1.668239);
     private LatLng MAIRIE = new LatLng(48.112102, -1.680228);
 
     private  ListActivity listActivity;
@@ -74,18 +73,29 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng rennes = new LatLng(48.0833, -1.6833);
-        mMap.addMarker(new MarkerOptions().position(rennes).title("Marker in Rennes"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(rennes, 12));
+        int zoom = 12;
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(THABOR, zoom));
 
-
+        placerMarqueursFixes();
     }
 
     //placer marker
 
     private void  placerMarqueursFixes() {
 
+        MarkerOptions leMarqueur;
+
+        leMarqueur = new MarkerOptions();
+        leMarqueur.position(MAIRIE);
+        leMarqueur.title("Mairie de Rennes");
+        leMarqueur.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        mMap.addMarker(leMarqueur);
+
+        leMarqueur = new MarkerOptions();
+        leMarqueur.position(THABOR);
+        leMarqueur.title("Chopper des meufs (Le Thabor)");
+        leMarqueur.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+        mMap.addMarker(leMarqueur);
     }
 
     private void  placerMarqueursStations() {
