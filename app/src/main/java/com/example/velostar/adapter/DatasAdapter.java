@@ -11,16 +11,16 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.velostar.R;
-import com.example.velostar.model.Data;
+import com.example.velostar.model.Records;
 import com.example.velostar.viewholder.DataViewHolder;
 
 import java.util.List;
 
 public class DatasAdapter extends RecyclerView.Adapter<DataViewHolder> {
 
-    private List<Data> data;
+    private List<Records> data;
 
-    public DatasAdapter(List<Data> data) {
+    public DatasAdapter(List<Records> data) {
         this.data = data;
     }
 
@@ -37,19 +37,19 @@ public class DatasAdapter extends RecyclerView.Adapter<DataViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull DataViewHolder holder, int position) {
 
-        Data data = this.data.get(position);
+        Records data = this.data.get(position);
 
         TextView tv_item_name = holder.getTv_item_name();
-        tv_item_name.setText(data.getName());
+        tv_item_name.setText(data.getFields().getName()+"");
 
         TextView tv_item_socle = holder.getTv_item_socles();
-        tv_item_socle.setText(data.getSocle());
+        tv_item_socle.setText(data.getFields().getSocle()+"");
 
         TextView tv_item_socle_dispo = holder.getTv_item_socles_dispo();
-        tv_item_socle_dispo.setText(data.getSocleDispo());
+        tv_item_socle_dispo.setText(data.getFields().getSocleDispo()+"");
 
         TextView tv_item_velo_dispo = holder.getTv_item_velo_dispo();
-        tv_item_velo_dispo.setText(data.getVeloDispo());
+        tv_item_velo_dispo.setText(data.getFields().getVeloDispo()+"");
 
 
 

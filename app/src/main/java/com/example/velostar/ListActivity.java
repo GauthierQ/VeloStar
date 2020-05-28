@@ -11,8 +11,8 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.velostar.adapter.DatasAdapter;
-import com.example.velostar.model.Data;
-import com.example.velostar.retrofit.DataContainer;
+import com.example.velostar.model.Records;
+import com.example.velostar.model.DataContainer;
 import com.example.velostar.retrofit.RetrofitClient;
 
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ public class ListActivity extends AppCompatActivity {
 
     public static final String TAG ="VELOSTAR";
     private RecyclerView rv_list_station;
-    private List<Data> data = new ArrayList<>();
+    private List<Records> data = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,7 +62,7 @@ public class ListActivity extends AppCompatActivity {
                Log.d(TAG, response.code() + "");
                Log.d(TAG, response.body().toString());
                 data.clear();
-                data.addAll(response.body().getData());
+                data.addAll(response.body().getRecords());
                 datasAdapter.notifyDataSetChanged();
            }
 
