@@ -7,17 +7,37 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.velostar.model.Fields;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import  android.widget.TextView;
+
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.Marker;
+import org.json.JSONObject;
+
+
 
 public class Maps extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private Button btn_list_station;
+    //private  TextView TextViewDetail;
+
+    //manage creation of some locations
+    private LatLng THABOR = new LatLng(48.114208, -1.665977);
+    private LatLng DELASALLE = new LatLng(48.12546, -1.668239);
+    private LatLng MAIRIE = new LatLng(48.112102, -1.680228);
+
+    private  ListActivity listActivity;
+    private Fields fields;
+
 
 
     @Override
@@ -61,4 +81,15 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
 
 
     }
+
+    //placer marker
+
+    private void  placerMarqueursFixes() {
+
+    }
+
+    private void  placerMarqueursStations() {
+
+    }
+
 }
