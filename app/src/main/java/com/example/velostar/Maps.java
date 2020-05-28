@@ -107,10 +107,7 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
         double Lat;
         double Lng;
 
-        for (int i=0; i < fields.getCoordonnes().length; i++)
-        {
-            fields.getCoordonnes().
-        }
+
 
         mMap.clear();
         placerMarqueursFixes();
@@ -119,7 +116,7 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
             leMarqueur = new MarkerOptions();
             leMarqueur.position(new LatLng(fields.getCoordonnes(), ));
             leMarqueur.title(fields.getName());
-            leMarqueur.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+            leMarqueur.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
             mMap.addMarker(leMarqueur);
         }
     }
