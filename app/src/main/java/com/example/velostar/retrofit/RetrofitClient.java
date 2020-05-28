@@ -18,7 +18,7 @@ public class RetrofitClient {
                     .build();
 
 
-            //create StationService
+            //create the StationService
             stationService = retrofit.create(StationService.class);
         }
 
