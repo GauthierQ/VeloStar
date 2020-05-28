@@ -53,12 +53,12 @@ public class ListActivity extends AppCompatActivity {
        rv_list_station.setAdapter(datasAdapter);
        rv_list_station.setLayoutManager(new LinearLayoutManager(this));
 
-       Call<DataContainer> getCardsCall = RetrofitClient.getStationService().getCards();
+       Call<DataContainer> getDatasCall = RetrofitClient.getStationService().getDatas();
 
-       getCardsCall.enqueue(new Callback<DataContainer>() {
+        getDatasCall.enqueue(new Callback<DataContainer>() {
            @Override
            public void onResponse(Call<DataContainer> call, Response<DataContainer> response) {
-               Log.d(TAG, "ListActivity - getCardsCall - onResponse");
+               Log.d(TAG, "ListActivity - getDatasCall - onResponse");
                Log.d(TAG, response.code() + "");
                Log.d(TAG, response.body().toString());
                 data.clear();
@@ -68,7 +68,7 @@ public class ListActivity extends AppCompatActivity {
 
            @Override
            public void onFailure(Call<DataContainer> call, Throwable t) {
-               Log.d(TAG, "ListActivity - getCardsCall - onFailure");
+               Log.d(TAG, "ListActivity - getDatasCall - onFailure");
                Log.d(TAG, t.getMessage());
            }
        });

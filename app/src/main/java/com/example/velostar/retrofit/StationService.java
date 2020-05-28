@@ -5,7 +5,7 @@ import retrofit2.http.GET;
 
 public interface StationService {
 
-    @GET("records")
-    Call<DataContainer> getCards();
+    @GET("facet")
+    Call<DataContainer> getDatas();
 
 }

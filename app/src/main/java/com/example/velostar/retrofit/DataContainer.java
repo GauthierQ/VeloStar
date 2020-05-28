@@ -7,8 +7,9 @@ import java.util.List;
 
 public class DataContainer {
 
-    @SerializedName("records")
+    @SerializedName("facet")
     private List<Data> data;
+
 
     public DataContainer(){
     }

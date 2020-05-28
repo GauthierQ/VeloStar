@@ -9,21 +9,20 @@ public class Data {
     private String name;
 
     @SerializedName("nombreemplacementsactuels")
-    private String socle;
+    private int socle;
 
     @SerializedName("nombreemplacementsdisponibles")
-    private String socleDispo;
+    private int socleDispo;
 
     @SerializedName("nombrevelosdisponibles")
-    private String veloDispo;
-
+    private int veloDispo;
 
 
 
     private Data(){
     }
 
-    public Data(String name, String socle, String socleDispo, String veloDispo) {
+    public Data(String name, int socle, int socleDispo, int veloDispo) {
         this.name = name;
         this.socle = socle;
         this.socleDispo = socleDispo;
@@ -39,22 +38,22 @@ public class Data {
     public void setName(String name) {
         this.name = name;
     }
-    public String getSocle() {
+    public int getSocle() {
         return socle;
     }
-    public void setSocle(String socle) {
+    public void setSocle(int socle) {
         this.socle = socle;
     }
-    public String getSocleDispo() {
+    public int getSocleDispo() {
         return socleDispo;
     }
-    public void setSocleDispo(String socleDispo) {
+    public void setSocleDispo(int socleDispo) {
         this.socleDispo = socleDispo;
     }
-    public String getVeloDispo() {
+    public int getVeloDispo() {
         return veloDispo;
     }
-    public void setVeloDispo(String veloDispo) {
+    public void setVeloDispo(int veloDispo) {
         this.veloDispo = veloDispo;
     }
 
@@ -62,11 +61,11 @@ public class Data {
 
     @Override
     public String toString() {
-        return "Card{" +
-                ", name='" + name + '\'' +
-                ", socle='" + socle + '\'' +
-                ", socleDispo='" + socleDispo + '\'' +
-                ", veloDispo='" + veloDispo + '\'' +
+        return "fields{" +
+                "nom:'" + name + '\'' +
+                "nombreemplacementsactuels:'" + socle + '\'' +
+                "nombreemplacementsdisponibles:'" + socleDispo + '\'' +
+                "nombrevelosdisponibles:'" + veloDispo + '\'' +
 
                 '}';
     }
