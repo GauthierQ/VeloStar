@@ -1,8 +1,12 @@
 package com.example.velostar;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
+import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,14 +35,13 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     private Button btn_list_station;
-    //private  TextView TextViewDetail;
 
     //manage creation of some locations
     private LatLng THABOR = new LatLng(48.114208, -1.665977);
     private LatLng MAIRIE = new LatLng(48.112102, -1.680228);
 
-    private List<Records> data = new ArrayList<>();
-    private Fields fields;
+    private List<Records> listeStation = new ArrayList<>();
+    private Fields uneStation;
 
 
 
@@ -79,7 +82,13 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
         int zoom = 12;
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(THABOR, zoom));
 
+
         placerMarqueursFixes();
+
+//        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
+//        {
+//            mMap.setMyLocationEnabled(true);
+//        }
     }
 
     //placer marker
@@ -101,24 +110,20 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
         mMap.addMarker(leMarqueur);
     }
 
-    private void  placerMarqueursStations() {
-
-        MarkerOptions leMarqueur;
-        double Lat;
-        double Lng;
-
-
-
-        mMap.clear();
-        placerMarqueursFixes();
-
-        for (int i = 0; i < data.size(); i++) {
-            leMarqueur = new MarkerOptions();
-            leMarqueur.position(new LatLng(fields.getCoordonnes(), ));
-            leMarqueur.title(fields.getName());
-            leMarqueur.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
-            mMap.addMarker(leMarqueur);
-        }
-    }
+//    private void  placerMarqueursStations() {
+//
+//        MarkerOptions leMarqueur;
+//
+//        mMap.clear();
+//        placerMarqueursFixes();
+//
+//        for (int i = 0; i < listeStation.size(); i++) {
+//            leMarqueur = new MarkerOptions();
+//            leMarqueur.position(new LatLng(uneStation.getCoordonnes(), ));
+//            leMarqueur.title(uneStation.getName());
+//            leMarqueur.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
+//            mMap.addMarker(leMarqueur);
+//        }
+//    }
 
 }

@@ -14,15 +14,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.velostar.R;
 import com.example.velostar.model.Records;
 import com.example.velostar.viewholder.DataViewHolder;
-import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 public class DatasAdapter extends RecyclerView.Adapter<DataViewHolder> {
@@ -37,7 +30,7 @@ public class DatasAdapter extends RecyclerView.Adapter<DataViewHolder> {
     @NonNull
     @Override
     public DataViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View mainViewHolder = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_card, parent, false);
+        View mainViewHolder = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_station, parent, false);
         DataViewHolder dataViewHolder = new DataViewHolder(mainViewHolder);
 
         return dataViewHolder;
