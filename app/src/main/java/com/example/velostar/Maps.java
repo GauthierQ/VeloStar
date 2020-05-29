@@ -7,12 +7,18 @@ import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationListener;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.velostar.model.DataContainer;
 import com.example.velostar.model.Fields;
 import com.example.velostar.model.Records;
+import com.example.velostar.retrofit.RetrofitClient;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -20,11 +26,17 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import  android.widget.TextView;
+import android.widget.Toast;
 
+import retrofit2.Call;
+import retrofit2.Callback;
 import retrofit2.Response;
 import retrofit2.Retrofit;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -42,7 +54,6 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
 
     private List<Records> listeStation = new ArrayList<>();
     private Fields uneStation;
-
 
 
     @Override
@@ -64,6 +75,42 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
             }
         });
 
+
+
+
+        Call<DataContainer> getDatasCall = RetrofitClient.getStationService().getDatas();
+
+        getDatasCall.enqueue(new Callback<DataContainer>() {
+            @Override
+            public void onResponse(Call<DataContainer> call, Response<DataContainer> response) {
+                mMap.clear();
+                for (int i = 0; i < response.body().getRecords().size(); i++) {
+
+                    double[] lat = response.body().getRecords().get(i).getFields().getCoordonnes();
+                    String name = response.body().getRecords().get(i).getFields().getName();
+                    int velo = response.body().getRecords().get(i).getFields().getVeloDispo();
+                    MarkerOptions markerOptions = new MarkerOptions();
+                    LatLng latLng = new LatLng(lat[0], lat[1]);
+
+                    markerOptions.position(latLng);
+                    markerOptions.title(name);
+                    Marker m = mMap.addMarker(markerOptions);
+                    markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                    // move map camera
+
+
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(MAIRIE));
+                    mMap.animateCamera(CameraUpdateFactory.zoomTo(12.5f));
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<DataContainer> call, Throwable t) {
+
+            }
+        });
+
     }
 
     /**
@@ -79,11 +126,9 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        int zoom = 12;
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(THABOR, zoom));
 
 
-        placerMarqueursFixes();
+
 
 //        if(ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
 //        {
@@ -91,39 +136,10 @@ public class Maps extends FragmentActivity implements OnMapReadyCallback {
 //        }
     }
 
-    //placer marker
 
-    private void  placerMarqueursFixes() {
 
-        MarkerOptions leMarqueur;
 
-        leMarqueur = new MarkerOptions();
-        leMarqueur.position(MAIRIE);
-        leMarqueur.title("MyDigitalMairie");
-        leMarqueur.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-        mMap.addMarker(leMarqueur);
 
-        leMarqueur = new MarkerOptions();
-        leMarqueur.position(THABOR);
-        leMarqueur.title("MyDigitalThabor)");
-        leMarqueur.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-        mMap.addMarker(leMarqueur);
-    }
-
-//    private void  placerMarqueursStations() {
 //
-//        MarkerOptions leMarqueur;
-//
-//        mMap.clear();
-//        placerMarqueursFixes();
-//
-//        for (int i = 0; i < listeStation.size(); i++) {
-//            leMarqueur = new MarkerOptions();
-//            leMarqueur.position(new LatLng(uneStation.getCoordonnes(), ));
-//            leMarqueur.title(uneStation.getName());
-//            leMarqueur.icon(BitmapDescriptorFactory.fromResource(R.drawable.marker));
-//            mMap.addMarker(leMarqueur);
-//        }
-//    }
 
 }
