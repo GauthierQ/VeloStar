@@ -59,7 +59,7 @@ public class DatasAdapter extends RecyclerView.Adapter<DataViewHolder> {
 
         ImageView iv_item_etat = holder.getIv_item_etat();
         if (data.getFields().getEtat().equals("En fonctionnement")){
-            iv_item_etat.setImageResource(R.drawable.ic_great);
+            iv_item_etat.setImageResource(R.drawable.ic_image_recyclerview);
         }else {
             iv_item_etat.setImageResource(R.drawable.ic_disable);
         }
