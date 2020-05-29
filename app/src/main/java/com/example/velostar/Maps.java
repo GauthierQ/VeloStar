@@ -25,6 +25,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import android.widget.ImageButton;
 import  android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,7 +48,7 @@ import java.util.List;
 public class Maps extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
-    private Button btn_list_station;
+    private ImageButton btn_list_station;
 
     //manage creation of some locations
     private LatLng THABOR = new LatLng(48.114208, -1.665977);
