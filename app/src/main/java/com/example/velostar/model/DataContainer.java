@@ -1,5 +1,6 @@
 package com.example.velostar.model;
 
+import com.example.velostar.ListActivity;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -8,6 +9,7 @@ public class DataContainer {
 
     @SerializedName("records")
     private List<Records> records;
+
 
     public DataContainer(){
     }
@@ -27,7 +29,7 @@ public class DataContainer {
     @Override
     public String toString() {
         return "DataContainer{" +
-                    "records: [" +
+                "records: [" +
 
                 records +
                     "]" +

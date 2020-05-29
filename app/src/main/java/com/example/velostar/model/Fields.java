@@ -7,6 +7,8 @@ import java.util.Date;
 
 public class Fields {
 
+
+
     @SerializedName("nom")
     private String name;
 

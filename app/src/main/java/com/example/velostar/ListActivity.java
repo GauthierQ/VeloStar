@@ -14,6 +14,7 @@ import com.example.velostar.adapter.DatasAdapter;
 import com.example.velostar.model.Records;
 import com.example.velostar.model.DataContainer;
 import com.example.velostar.retrofit.RetrofitClient;
+import com.example.velostar.retrofit.StationService;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -32,6 +33,8 @@ import retrofit2.Response;
 public class ListActivity extends AppCompatActivity  {
 
     Button btn_map;
+    Button btn_more;
+    //private int start = 0;
 
     public static final String TAG ="VELOSTAR";
     private RecyclerView rv_list_station;
@@ -44,7 +47,7 @@ public class ListActivity extends AppCompatActivity  {
 
 
         btn_map = findViewById(R.id.btn_map);
-
+        //btn_more = findViewById(R.id.btn_more);
         btn_map.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,6 +55,8 @@ public class ListActivity extends AppCompatActivity  {
                 startActivity(i);
             }
         });
+
+
 
 
 
