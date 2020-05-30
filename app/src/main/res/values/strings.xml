@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">VeloStar</string>
-    <string name="title_activity_maps">VeloStar</string>
+    <string name="app_name">Velo Star</string>
+    <string name="title_activity_maps">Velo Star</string>
     <string name="google_maps_key">AIzaSyDw6_dop_Q6aEkgxL-vZcv4x-IeYyc2QQs</string>
     <string name="app_logo" />
 

@@ -6,16 +6,29 @@
     android:layout_height="match_parent"
     tools:context=".ListActivity">
 
-    <Button
+
+    <!--    <Button-->
+<!--        android:id="@+id/btn_map"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@android:color/holo_blue_dark"-->
+<!--        android:text="Retour"-->
+<!--        android:textColor="@android:color/white"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <ImageView
         android:id="@+id/btn_map"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:background="@android:color/holo_blue_dark"
-        android:text="Retour"
-        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.07"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_return" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_list_station"

@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.velostar.adapter.DatasAdapter;
 import com.example.velostar.model.Records;
@@ -32,7 +33,7 @@ import retrofit2.Response;
 
 public class ListActivity extends AppCompatActivity  {
 
-    Button btn_map;
+    ImageView btn_map;
     Button btn_more;
     //private int start = 0;
 
